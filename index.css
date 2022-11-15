@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'Frankito Sans';
+    src: url('fonts/frankito_sans.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Frankito Sans Outline';
+    src: url('fonts/frankito_sans_outline.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Maxx Medium';
+    src: url('fonts/maxxmedium.woff') format('woff');
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Maxx Medium";
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    height: 170px;
+    display: flex;
+    align-items: center;
+    background-color: #335C67;
+}
+
+nav {
+    background-color: #335C67;
+    margin: 0;
+    height: 50px;
+    position:-webkit-sticky; position:sticky; top:0;
+    padding-top: 5px;
+    border-top: 3px #FFF3B0 solid;
+}
+
+ul {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    padding-top: 10px;
+}
+
+ul li {
+    display: inline-block;
+    margin-left: 50px;
+    font-size: 20px;
+    text-align: left;
+}
+
+ul li:first-child {
+    margin-left: 0px;
+}
+
+
+ul li a {
+    text-decoration: none;
+    color: #FFF3B0;
+    padding: 4px 10px;
+    background: linear-gradient(to right, #FFF3B0 50%, #335C67 50%);
+    background-size: 200% 100%;
+    background-position:right bottom;
+    transition:all 0.2s ease;
+}
+
+ul li a:hover,
+ul li a:focus {
+    color: #335C67;
+    cursor: pointer;
+    background-position:left bottom;
+}
+
+
+main {
+    padding: 40px 0px;
+    background-color: #FFF3B0;
+}
+
+footer {
+    text-align: center;
+    background-color: #E09F3E;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    color: #FFF3B0;
+    font-size: 12px;
+}
+
+h1 {
+    margin: 0;
+    margin-left: 10px;
+    font-family: "Frankito Sans", sans-serif;
+    font-size: 40px;
+    color: #FFF3B0;
+}
+
+h2 {
+    font-family: "Frankito Sans Outline", sans-serif;
+    font-weight: 900;
+    color: #540B0E;
+}
+
+h3 {
+    font-family: "Frankito Sans", sans-serif;
+    color: #540B0E;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+section:last-child {
+    margin-bottom: 0px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: #540B0E solid 3px;
+    margin-bottom: 40px;
+    background-color: #ffffff79;
+    padding: 20px 0px;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0px;
+}
+
+.col-1 {
+    box-sizing: border-box;
+    width: 170px;
+    padding: 20px 0px 20px 20px;
+}
+
+.col-2 {
+    box-sizing: border-box;
+    width: 410px;
+    padding: 0px 25px 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.food-image {
+    width: 140px;
+    display: block;
+    margin: 0 auto;
+}
+
+.food-description {
+    font-family: "Maxx Medium", sans-serif;
+    font-weight: normal;
+    color: #335C67;
+}
+
+.price {
+    font-family: "Frankito Sans Outline", sans-serif;
+    color: #540B0E;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+button {
+    border: none;
+    background-color: #335C67;
+    border-radius: 0px;
+    width: 150px;
+    height: 50px;
+    color: #FFF3B0;
+    font-size: 15px;
+    font-family: "Frankito Sans", sans-serif;
+    cursor: pointer;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.order-button:hover,
+.order-button:focus {
+    background-color: #335c67bb;
+}
+
+.order-button:active {
+    transform: translateY(1px);
+}
+
+.outline {
+    font-family: "Frankito Sans Outline", sans-serif;
+    font-size: 37px;
+}
