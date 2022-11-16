@@ -3,18 +3,24 @@
         <!-- CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
         <link rel="stylesheet" href="index.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<!-- custom tags -->
 		<meta name="author" content="Franky Jr Blondeel">
 		<meta charset="UTF-8">
 		<title>Frankito's Delicacies</title>
-		<link rel="icon" type="image/x-icon" href="images/favicon.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="images/appleIcon.png">
+        <!-- icon sets-->
+        <link rel="icon" href="images/icons/favicon.ico" sizes="any"><!-- 32×32 -->
+        <link rel="icon" href="images/icons/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png"><!-- 180×180 -->
+        <link rel="manifest" href="manifest/manifest.webmanifest">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container header">
                 <h1>FRANKITO'S<br><span class="outline">Delicacies</span></h1>
+                <img src="images/header.png" alt="headerlogo">
             </div>
         </header>
         <nav>
@@ -30,21 +36,21 @@
         <main>
             <div class="container">
                 <section class="drinks">
-                    <h2>Drinks</h2>
+                    <h2 data-title="drinks">Drinks <i class="fa-solid fa-arrow-down" data-title="drinks" id="drinks-arrow"></i></h2>
                     <div id="drinks-menu-items">
 
                     </div>
                     <div id="mains"></div>
                 </section>
                 <section class="mains">
-                    <h2>Main Dishes</h2>
+                    <h2 data-title="main">Main Dishes <i class="fa-solid fa-arrow-down" data-title="main" id="main-arrow"></i></h2>
                     <div id="main-menu-items">
                         
                     </div>
                     <div id="desserts"></div>
                 </section>
                 <section class="desserts">
-                    <h2>Desserts</h2>
+                    <h2 data-title="desserts">Desserts  <i class="fa-solid fa-arrow-down" data-title="desserts" id="desserts-arrow"></i></h2>
                         <div id="desserts-menu-items">
 
                         </div>

@@ -3,9 +3,23 @@ import { mainsArray } from '/data.js'
 import { drinksArray } from '/data.js'
 import { dessertsArray } from '/data.js'
 
+//consts
 const drinksSection = document.getElementById("drinks-menu-items")
 const mainsSection = document.getElementById("main-menu-items")
 const dessertsSection = document.getElementById("desserts-menu-items")
+
+//eventlisteners
+document.addEventListener("click", function(e) {
+    if (e.target.dataset.title) {
+        collapseSection(e.target.dataset.title)
+    }
+})
+
+function collapseSection(sectionDataSet) {
+    document.getElementById(sectionDataSet+"-menu-items").classList.toggle("hidden")
+    document.getElementById(sectionDataSet+"-arrow").classList.toggle("rotate")
+    
+}
 
 function collectDrinks() {
     let drinksHTMLcontent = ''

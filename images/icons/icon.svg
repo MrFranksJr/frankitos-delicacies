@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #335c67;
+      }
+
+      .cls-2 {
+        stroke-width: 20px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke: #fff3b0;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: 19px;
+      }
+
+      .cls-4 {
+        fill: #fff3b0;
+        font-family: FedPig-Outline, FedPig;
+        font-size: 149.32px;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="-29.5" y="-28.5" width="576" height="566"/>
+  <path class="cls-3" d="M78.5,181s4-31,17-43,39-32,54-33c9,1,22.16,.5,28-1.5s43-25.5,63-30.5,39-14,62-7,30,16,68,16,53,10,63,20,39,30,48,73.5c5,23-10,52.5-21,61.5-16,13-69,32-72,37s-5,33-5,38v99s-60,20.27-128,18.14-112-17.14-112-17.14v-125s-38,3-47,2-51-11-58-24-6.07-43.31-3-52,9-24,43-32Z"/>
+  <path class="cls-3" d="M293.31,256s25.69-28,33.69-45,22-70,22-70"/>
+  <path class="cls-3" d="M197,156s11,24,16.69,42.5,10.73,57.5,10.73,57.5"/>
+  <path class="cls-2" d="M387,274s40-46,45-59,18-58,18-65,3-23,3-23"/>
+  <path class="cls-2" d="M387,278s-16-11-38-16-69.75-8-92.88-6-116.89,18-116.89,18c0,0-39.23-23-50.23-37s-11-49-11-49"/>
+  <text class="cls-4" transform="translate(225.85 402.67)"><tspan x="0" y="0">F</tspan></text>
+</svg>

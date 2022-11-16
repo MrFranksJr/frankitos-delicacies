@@ -14,8 +14,8 @@ export const mainsArray = [
         image: "./images/burger.png"
     },
         {
-        name: "Salmon Linguine",
-        description: `Straight from Vancouver Island onto your plate, together with perfectly cooked, al dente linguine from my Italian grandmother. Try not to gobble it all at once!`,
+        name: "Neffi's Salmon Linguine",
+        description: `Straight from Vancouver Island onto your plate, together with perfectly boiled, al dente linguine from my Italian grandmother. Try not to gobble it all at once!`,
         price: "18",
         image: "./images/salmon.png",
         id: 2

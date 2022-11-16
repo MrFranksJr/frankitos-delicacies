@@ -10,6 +10,11 @@
     font-family: 'Maxx Medium';
     src: url('fonts/maxxmedium.woff') format('woff');
 }
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
 
 html {
     padding: 0;
@@ -32,6 +37,12 @@ header {
     display: flex;
     align-items: center;
     background-color: #335C67;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav {
@@ -88,7 +99,7 @@ main {
 footer {
     text-align: center;
     background-color: #E09F3E;
-    height: 150px;
+    height: 100px;
     display: flex;
     align-items: center;
     color: #FFF3B0;
@@ -107,6 +118,7 @@ h2 {
     font-family: "Frankito Sans Outline", sans-serif;
     font-weight: 900;
     color: #540B0E;
+    cursor: pointer;
 }
 
 h3 {
@@ -122,6 +134,10 @@ section {
 
 section:last-child {
     margin-bottom: 0px;
+}
+
+i {
+    transition: 0.3s ease-in-out;
 }
 
 .menu-item {
@@ -198,4 +214,12 @@ button {
 .outline {
     font-family: "Frankito Sans Outline", sans-serif;
     font-size: 37px;
+}
+
+.hidden {
+    display: none;
+}
+
+.rotate {
+    transform: rotate(-180deg);
 }
