@@ -55,18 +55,21 @@
 
                         </div>
                 </section>
-                <div id="cart-modal-header" class="cart-modal-header">
-                    <h3>Your Order</h3>
-                </div>
-                <div id="cart-modal" class="cart-modal">
-                    <div id="ordered-items" class="ordered-items">
-                        <div class="ordered-item"><p>Item one</p><p>$20</p></div>
-                        <div class="ordered-item"><p>Item one</p><p>$20</p></div>
-                        <div class="ordered-item"><p>Item one</p><p>$20</p></div>
-                        <div class="ordered-item"><p>Item one</p><p>$20</p></div>
+                <div class="modal-wrapper">
+                    <div id="cart-modal-header" class="cart-modal-header cart-modal-header-hidden" data-cart="cart-header">
+                        <h3 data-cart="cart-header">Your Order</h3>
                     </div>
-                    <div id="total-items" class="total-items">
-                        <p>Total:</p><p>$20</p>
+                    <div id="cart-modal" class="cart-modal cart-hidden">
+                        <div id="ordered-items" class="ordered-items">
+                            <div class="empty-cart">Your cart is empty</div>
+                            <div class="ordered-item"><p>Item one <a href="#">remove</a></p><p>$20</p></div>
+                            <div class="ordered-item"><p>Item one <a href="#">remove</a></p><p>$20</p></div>
+                            <div class="ordered-item"><p>Item one <a href="#">remove</a></p><p>$20</p></div>
+                            <div class="ordered-item"><p>Item one <a href="#">remove</a></p><p>$20</p></div>
+                        </div>
+                        <div id="total-items" class="total-items">
+                            <p>Total:</p><p class="total-amount">$20</p>
+                        </div>
                     </div>
                 </div>
             </div>

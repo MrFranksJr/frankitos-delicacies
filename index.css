@@ -147,7 +147,7 @@ i {
 }
 
 .menu-section {
-    max-height: 1000px;
+    max-height: 900px;
     transition: max-height 0.4s ease-out;
     transition-duration: 0.4s;
     transition-timing-function: ease-out;
@@ -262,7 +262,7 @@ button {
 
 .image-modal-content {
     display: flex;
-    height: 100%;
+    height: 90%;
     padding-bottom: 20px;
   }
 
@@ -284,16 +284,24 @@ button {
     height: auto;
 }
 
+.modal-wrapper  {
+    position:-webkit-sticky; position:sticky; bottom:0;
+}
+
 .cart-modal {
     box-sizing: border-box;
     bottom: 0;
-    left: 50%;
-    margin-left: -50%vw; /* Negative half of width. */
-    width: 500px;
     margin: 0 auto;
+    width: 500px;
     background-color: #335C67;
     color: #FFF3B0;
-    padding: 30px;
+    padding: 30px 30px 0px 30px;
+    max-height: 500px;
+    transition: all 0.3s ease-in-out;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    overflow: scroll;
 }
 
 .cart-modal-header{
@@ -302,8 +310,15 @@ button {
     width: 500px;
     background-color: #335C67;
     margin: 0 auto;
-    padding: 30px;
+    padding: 15px;
     border-bottom: 3px solid #FFF3B0;
+    transition: all 0.3s ease-in-out;
+}
+
+.cart-modal-header-hidden {
+    border: none;
+    width: 300px;
+    padding: 10px;
 }
 
 .cart-modal-header h3 {
@@ -321,8 +336,43 @@ button {
     justify-content: space-between;
 }
 
+.ordered-item a {
+    text-decoration: none;
+    color: #E09F3E;
+    font-size: 11px;
+    padding-left: 15px;
+    font-family: "Maxx Medium", sans-serif;
+}
+
 .total-items {
     text-align: left;
     display: flex;
     justify-content: space-between;
+    font-family: "Frankito Sans Outline", sans-serif;
+    font-size: 25px;
+}
+
+.total-amount {
+    font-family: "Frankito Sans", sans-serif;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #9E2A2B;
+    font-size: 25px;
+}
+
+.cart-hidden {
+    /* opacity: 0; */
+    max-height: 0; /* OPTIONAL */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    transition: padding 0.3s none 1s;
+    margin: 0 auto;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 300px;
 }

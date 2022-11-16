@@ -20,7 +20,16 @@ document.addEventListener("click", function(e) {
         document.getElementById("image-modal-content").innerHTML = ''
         document.getElementById("image-modal").classList.toggle("shown")
     }
+    else if (e.target.dataset.cart) {
+        console.log(e.target.dataset.cart)
+        collapseCart()
+    }
 })
+
+function collapseCart() {
+    document.getElementById("cart-modal").classList.toggle("cart-hidden")
+    document.getElementById("cart-modal-header").classList.toggle("cart-modal-header-hidden")
+}
 
 function collapseSection(sectionDataSet) {
     document.getElementById(sectionDataSet+"-menu-items").classList.toggle("hidden")
