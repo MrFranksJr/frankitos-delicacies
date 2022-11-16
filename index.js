@@ -13,12 +13,26 @@ document.addEventListener("click", function(e) {
     if (e.target.dataset.title) {
         collapseSection(e.target.dataset.title)
     }
+    else if (e.target.dataset.bigurl) {
+        fetchBigImage(e.target.dataset.bigurl)
+    }
+    else if (e.target.id === 'img-close') {
+        document.getElementById("image-modal-content").innerHTML = ''
+        document.getElementById("image-modal").classList.toggle("shown")
+    }
 })
 
 function collapseSection(sectionDataSet) {
     document.getElementById(sectionDataSet+"-menu-items").classList.toggle("hidden")
     document.getElementById(sectionDataSet+"-arrow").classList.toggle("rotate")
-    
+}
+
+function fetchBigImage(imageDataSet) {
+    let imgHTML = `
+                    <img src="${imageDataSet}" class="img-responsive">
+                `
+    document.getElementById("image-modal-content").innerHTML = imgHTML
+    document.getElementById("image-modal").classList.toggle("shown")
 }
 
 function collectDrinks() {
@@ -27,7 +41,7 @@ function collectDrinks() {
         drinksHTMLcontent += `
             <div class="menu-item">
                 <div class="col-1">
-                    <img src="${drink.image}" class="food-image">
+                    <img src="${drink.image}" class="food-image" data-bigurl="${drink.bigimage}">
                 </div>
                 <div class="col-2">
                     <h3>${drink.name}</h3>
@@ -47,7 +61,7 @@ function collectMains() {
         mainsHTMLcontent += `
             <div class="menu-item">
                 <div class="col-1">
-                    <img src="${main.image}" class="food-image">
+                    <img src="${main.image}" class="food-image" data-bigurl="${main.bigimage}">
                 </div>
                 <div class="col-2">
                     <h3>${main.name}</h3>
@@ -67,7 +81,7 @@ function collectDesserts() {
         dessertsHTMLcontent += `
             <div class="menu-item">
                 <div class="col-1">
-                    <img src="${dessert.image}" class="food-image">
+                    <img src="${dessert.image}" class="food-image" data-bigurl="${dessert.bigimage}">
                 </div>
                 <div class="col-2">
                     <h3>${dessert.name}</h3>
