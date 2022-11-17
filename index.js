@@ -1,7 +1,7 @@
 //import data
-import { mainsArray } from '/data.js'
-import { drinksArray } from '/data.js'
-import { dessertsArray } from '/data.js'
+import { mainsArray } from '/mains.js'
+import { drinksArray } from '/drinks.js'
+import { dessertsArray } from '/desserts.js'
 
 //consts
 const drinksSection = document.getElementById("drinks-menu-items")
