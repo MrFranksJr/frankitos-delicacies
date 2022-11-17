@@ -218,8 +218,7 @@ button {
     box-sizing: border-box;
 }
 
-.order-button:hover,
-.order-button:focus {
+.order-button:hover {
     background-color: #335c67bb;
 }
 
@@ -316,6 +315,7 @@ button {
     padding: 15px;
     border-bottom: 3px solid #FFF3B0;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .cart-modal-header:hover,
@@ -362,6 +362,26 @@ button {
     justify-content: space-between;
     font-family: "Frankito Sans Outline", sans-serif;
     font-size: 25px;
+}
+
+.checkout-div {
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-btn {
+    background-color: #064E3B;
+    margin-bottom: 20px;
+}
+.checkout-btn:enabled:active {
+    transform: translateY(1px);
+}
+.checkout-btn:enabled:hover {
+    background-color: #064e3ba8;
+}
+.checkout-btn:disabled {
+    background-color: #540B0E;
+    cursor: not-allowed;
 }
 
 .total-amount {

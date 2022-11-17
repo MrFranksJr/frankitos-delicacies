@@ -100,15 +100,15 @@ function renderCart(cartArray) {
         }
         /* document.getElementById("ordered-items").innerHTML = htmlForCart */
         document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order (${cartArray.length})</h3>`
+        document.getElementById("checkout-btn").disabled = false
     }
     else {
         htmlForCart = `<div class="empty-cart">Your cart is empty</div>`
         document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order</h3>`
-        
+        document.getElementById("checkout-btn").disabled = true
     }
     document.getElementById("ordered-items").innerHTML = htmlForCart
     document.getElementById("total-amount").textContent = `$ ${calcTotalPrice(cartArray)}`
-    
 }
 
 function removeFromCart(itemID) {
