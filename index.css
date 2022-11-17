@@ -81,7 +81,7 @@ ul li a {
     text-decoration: none;
     color: #FFF3B0;
     padding: 4px 10px;
-    background: linear-gradient(to right, #FFF3B0 50%, #335C67 50%);
+    background: linear-gradient(to right, #FFF3B0 49%, #335C67 50%);
     background-size: 200% 100%;
     background-position:right bottom;
     transition:all 0.2s ease;
@@ -188,6 +188,7 @@ i {
     width: 140px;
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .food-description {
@@ -301,8 +302,10 @@ button {
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
     transition-delay: 0s;
-    overflow: scroll;
+    overflow-y: scroll;
+    scrollbar-color: #FFF3B0;
 }
+
 
 .cart-modal-header{
     text-align: center;
