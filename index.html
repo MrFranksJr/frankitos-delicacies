@@ -63,6 +63,16 @@
                         <div id="ordered-items" class="ordered-items">
                             <div class="empty-cart">Your cart is empty</div>
                         </div>
+                        <div id="subtotal-items" class="subtotal-items">
+                            <p>Subtotal:</p><p class="subtotal-amount" id="subtotal-amount">$ 0</p>
+                        </div>
+                        <div id="coupons-code" class="coupons-code">
+                            <input class="coupon-code" id="coupon-code" type="text" placeholder="Redeem a coupon code"><button id="redeem">Redeem</button>
+                        </div>
+                        <p id="coupon-applied" class="coupon-applied">Coupon applied at checkout: $10 discount!<br>(minimum $15 order required!)</p>
+                        <div id="delivery" class="delivery">
+                            <p>Delivery Costs:</p><p class="delivery-amount" id="delivery-amount">$ 4,99</p>
+                        </div>
                         <div id="total-items" class="total-items">
                             <p>Total:</p><p class="total-amount" id="total-amount">$ 0</p>
                         </div>
@@ -76,10 +86,28 @@
                 <div id="image-modal-content" class="image-modal-content"></div>
                 <button id="img-close" class="img-close">Close</button>
             </div>
+            <div id="checkout-modal" class="checkout-modal">
+                <h2>Checkout</h2>
+                <h3>Enter Address and Card details for delivery</h3>
+                <form id="checkout-form">
+                    <input id="name-input" type="text" placeholder="Enter your name" required autocomplete="name" enterkeyhint="next">
+                    <input id="street-input" type="text" placeholder="Enter your street and number" autocomplete="address-level1" required enterkeyhint="next">
+                    <div class="credit-card-div">
+                        <input id="zip-postal-input" type="text" placeholder="ZIP or Postal Code" autocomplete="postal-code" required enterkeyhint="next">
+                        <input id="city-input" type="text" placeholder="City" autocomplete="address-level2" required enterkeyhint="next">
+                    </div>
+                        <input id="credit-card-input" type="number" placeholder="Credit card number" autocomplete="cc-number" required enterkeyhint="next">
+                    <div class="credit-card-div">
+                        <input id="exp-input" type="text" placeholder="Enter EXP" autocomplete="cc-exp" required enterkeyhint="next"><input id="ccv-input" type="number" placeholder="Enter CCV" autocomplete="cc-csc" required enterkeyhint="next">
+                    </div>
+                    <button type="submit">Checkout</button>
+                </form>
+            </div>
         </main>
         <footer>
             <div class="container">
-                All food is made with carefully selected ingredients and contains a sizable squirt of love ❤️
+                All food is made with carefully selected ingredients and contains a sizable squirt of love ❤️ <br>
+                Free delivery from $35!!
             </div>
         </footer>
         </div>

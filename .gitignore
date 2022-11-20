@@ -4,3 +4,4 @@
 vite.config.js
 package-lock.json
 package.json
+.vscode/settings.json

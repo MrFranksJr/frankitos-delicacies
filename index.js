@@ -7,7 +7,9 @@ import { dessertsArray } from '/desserts.js'
 const drinksSection = document.getElementById("drinks-menu-items")
 const mainsSection = document.getElementById("main-menu-items")
 const dessertsSection = document.getElementById("desserts-menu-items")
+const couponBtn = document.getElementById("redeem")
 let cartContent = []
+let hasDiscount = false
 
 //eventlisteners
 document.addEventListener("click", function(e) {
@@ -32,6 +34,7 @@ document.addEventListener("click", function(e) {
         removeFromCart(e.target.dataset.remove)
     }
 })
+couponBtn.addEventListener("click", applyDiscount)
 
 
 ///////////BASIC FUNCTIONS/////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,6 +95,7 @@ function addToOrder(dishType, dishID) {
 
 function renderCart(cartArray) {
     let htmlForCart = ``
+    //WHEN CART IS NOT EMPTY
     if (cartContent.length > 0) {
         for (let dish of cartArray) {
             htmlForCart += `
@@ -102,6 +106,7 @@ function renderCart(cartArray) {
         document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order (${cartArray.length})</h3>`
         document.getElementById("checkout-btn").disabled = false
     }
+    //WHEN CART IS EMPTY
     else {
         htmlForCart = `<div class="empty-cart">Your cart is empty</div>`
         document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order</h3>`
@@ -119,13 +124,56 @@ function removeFromCart(itemID) {
     renderCart(cartContent)
 }
 
-function calcTotalPrice(cartArray) {
-    let totalPrice = 0
+function calcSubTotal(cartArray) {
+    let subTotal = 0
     for (let dish of cartArray) {
-        totalPrice += Number((dish.price).replace(',','.'))
+        subTotal += Number((dish.price).replace(',','.'))
     }
-    
+    document.getElementById("subtotal-amount").textContent = `$ ${subTotal}`
+    return subTotal
+}
+
+function calcTotalPrice(cartArray) {
+    let subTotal = calcSubTotal(cartArray)
+    let totalPrice = 0
+    if (subTotal === 0) {
+        totalPrice = subTotal
+    }
+    else if (subTotal < 35) {
+        totalPrice = Math.floor((subTotal + 4.99)*100)/100
+        document.getElementById("delivery-amount").style.textDecoration = "none"
+    }
+    else if (subTotal > 35) {
+        document.getElementById("delivery-amount").style.textDecoration = "line-through"
+        totalPrice = subTotal
+    }
+
+    if (hasDiscount) {
+        totalPrice = totalPrice - 10
+    }
     return (totalPrice.toString()).replace('.',',')
+}
+
+function applyDiscount() {
+    const couponInput = document.getElementById("coupon-code")
+    if (couponInput.value === '') {
+        alert('Enter a valid code!')
+    }
+    else {
+        if (couponInput.value === 'neffi' || couponInput.value === 'NEFFI' || couponInput.value === 'Neffi') {
+            hasDiscount = true
+            document.getElementById("coupon-code").disabled = true
+            couponBtn.disabled = true
+            document.getElementById("coupon-applied").style.display = "block"
+            if (cartContent.length > 0) {
+                renderCart(cartContent)
+            }
+        }
+        else {
+            alert('Enter a valid code!')
+            couponInput.value = ''
+        }
+    }
 }
 
 //////// BUILD PAGE ////////////////////////////////////////////////////////////////////////////////////////////////
