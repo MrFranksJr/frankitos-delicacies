@@ -307,24 +307,28 @@ button {
 
 /* SCROLLBAR MODAL */
 /* width */
-.cart-modal::-webkit-scrollbar {
+.cart-modal::-webkit-scrollbar,
+.checkout-modal::-webkit-scrollbar {
     width: 10px;
   }
   
   /* Track */
-.cart-modal::-webkit-scrollbar-track {
+.cart-modal::-webkit-scrollbar-track,
+.checkout-modal::-webkit-scrollbar-track {
     background: #335C67; 
   }
    
   /* Handle */
-.cart-modal::-webkit-scrollbar-thumb {
+.cart-modal::-webkit-scrollbar-thumb,
+.checkout-modal::-webkit-scrollbar-thumb {
     background: #E09F3E; 
   }
   
   /* Handle on hover */
-.cart-modal::-webkit-scrollbar-thumb:hover {
+.cart-modal::-webkit-scrollbar-thumb:hover,
+.checkout-modal::-webkit-scrollbar-thumb:hover {
     background: #FFF3B0; 
-  }
+}
 
 
 .cart-modal-header{
@@ -457,7 +461,7 @@ button {
     box-sizing: border-box;
     background-color: #FFF3B0;
     width: 575px;
-    min-height: 650px;
+    max-height: 90vh;
     position: fixed;
     text-align: left;
     top: 5%;
@@ -466,6 +470,8 @@ button {
     transform: translate(-50%, 0);
     z-index: 2;
     border: 3px solid #540B0E;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .checkout-modal h2 {
