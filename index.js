@@ -176,7 +176,7 @@ function calcTotalPrice(cartArray) {
         totalPrice = Math.floor((subTotal + 4.99)*100)/100
         document.getElementById("delivery-amount").style.textDecoration = "none"
     }
-    else if (subTotal > 35) {
+    else if (subTotal >= 35) {
         document.getElementById("delivery-amount").style.textDecoration = "line-through"
         totalPrice = subTotal
     }
