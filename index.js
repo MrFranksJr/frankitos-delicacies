@@ -1,9 +1,9 @@
-//import data
+//import data//////////////////////////////////////////////////////////////////////////////////////////////////////
 import { mainsArray } from '/mains.js'
 import { drinksArray } from '/drinks.js'
 import { dessertsArray } from '/desserts.js'
 
-//consts
+//consts//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const drinksSection = document.getElementById("drinks-menu-items")
 const mainsSection = document.getElementById("main-menu-items")
 const dessertsSection = document.getElementById("desserts-menu-items")
@@ -17,7 +17,7 @@ let hasDiscount = false
 let subTotal = ''
 let totalPrice = 0
 
-//eventlisteners
+////////////////eventlisteners//////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("click", function(e) {
     if (e.target.dataset.title) {
         collapseSection(e.target.dataset.title)
@@ -43,10 +43,10 @@ document.addEventListener("click", function(e) {
 couponBtn.addEventListener("click", applyDiscount)
 checkoutBtn.addEventListener("click", function() {
     checkoutModal.style.display = "block"
-    document.querySelector('footer').style = 'filter: blur(5px)'
-    document.querySelector('header').style = 'filter: blur(5px)'
-    document.querySelector('main').style = 'filter: blur(5px)'
-    document.querySelector('nav').style = 'filter: blur(5px)'
+    document.querySelector('footer').style = 'filter: blur(10px)'
+    document.querySelector('header').style = 'filter: blur(10px)'
+    document.querySelector('main').style = 'filter: blur(10px)'
+    document.querySelector('nav').style = 'filter: blur(10px)'
     couponBtn.style.display = "block"
 
     document.getElementById("checkout-subtotal-number").textContent = "$ " + totalPrice
@@ -65,8 +65,10 @@ checkoutCloseBtn.addEventListener("click", function() {
     document.getElementById("discount-overview").style.display = "none"
     document.getElementById("total-to-pay").style.display = "none"
 })
+payButton.addEventListener("click", processPayment)
 
-///////////BASIC FUNCTIONS/////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////BASIC FUNCTIONS///////////////////////////////////////////////////////////////////////////////////////////////
 function collapseCart() {
     document.getElementById("cart-modal").classList.toggle("cart-hidden")
     document.getElementById("cart-modal-header").classList.toggle("cart-modal-header-hidden")
@@ -221,6 +223,34 @@ function applyDiscount() {
                 }
         }
     }
+
+function processPayment() {
+    checkoutModal.innerHTML = `
+        <img class="paymentloading" src ="/images/rolling_big.svg" alt="loading SVG"/>
+        <h2 class="paymentloading">Processing payment...</h2>
+    `
+    setTimeout(function() {
+            checkoutModal.innerHTML = `
+            <div class="animation-ctn">
+            <div class="icon icon--order-success svg">
+            <svg class="paymentsuccess" xmlns="http://www.w3.org/2000/svg" width="154px" height="154px">  
+                <g fill="none" stroke="#22AE73" stroke-width="2"> 
+                <circle cx="77" cy="77" r="72" style="stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;"></circle>
+                <circle id="colored" fill="#22AE73" cx="77" cy="77" r="72" style="stroke-dasharray:480px, 480px; stroke-dashoffset: 960px;"></circle>
+                <polyline class="st0" stroke="#fff" stroke-width="10" points="43.5,77.8 63.7,97.9 112.2,49.4 " style="stroke-dasharray:100px, 100px; stroke-dashoffset: 200px;"/>   
+                </g> 
+            </svg>
+            </div>
+            </div>
+            <h2 class="paymentsuccess">Success!</h2>
+            <h2 class="paymentsuccess">Your order is on the way...</h2>
+        `
+    }, 2500)
+
+    setTimeout(function() {
+        location.reload();
+    }, 6500)
+}
 
 //////// BUILD PAGE ////////////////////////////////////////////////////////////////////////////////////////////////
 function collectDrinks() {
