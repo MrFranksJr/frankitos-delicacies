@@ -8,8 +8,14 @@ const drinksSection = document.getElementById("drinks-menu-items")
 const mainsSection = document.getElementById("main-menu-items")
 const dessertsSection = document.getElementById("desserts-menu-items")
 const couponBtn = document.getElementById("redeem")
+const checkoutBtn = document.getElementById("checkout-btn")
+const checkoutCloseBtn = document.getElementById("checkout-modal-close")
+const checkoutModal = document.getElementById("checkout-modal")
+const payButton = document.getElementById("pay-button")
 let cartContent = []
 let hasDiscount = false
+let subTotal = ''
+let totalPrice = 0
 
 //eventlisteners
 document.addEventListener("click", function(e) {
@@ -35,7 +41,30 @@ document.addEventListener("click", function(e) {
     }
 })
 couponBtn.addEventListener("click", applyDiscount)
+checkoutBtn.addEventListener("click", function() {
+    checkoutModal.style.display = "block"
+    document.querySelector('footer').style = 'filter: blur(5px)'
+    document.querySelector('header').style = 'filter: blur(5px)'
+    document.querySelector('main').style = 'filter: blur(5px)'
+    document.querySelector('nav').style = 'filter: blur(5px)'
+    couponBtn.style.display = "block"
 
+    document.getElementById("checkout-subtotal-number").textContent = "$ " + totalPrice
+})
+checkoutCloseBtn.addEventListener("click", function() {
+    checkoutModal.style.display = "none"
+    document.querySelector('footer').style = 'filter: blur(0px)'
+    document.querySelector('header').style = 'filter: blur(0px)'
+    document.querySelector('main').style = 'filter: blur(0px)'
+    document.querySelector('nav').style = 'filter: blur(0px)'
+
+    hasDiscount = false
+    couponBtn.disabled = false
+    document.getElementById("coupon-code").value = ""
+    document.getElementById("coupon-code").disabled = false
+    document.getElementById("discount-overview").style.display = "none"
+    document.getElementById("total-to-pay").style.display = "none"
+})
 
 ///////////BASIC FUNCTIONS/////////////////////////////////////////////////////////////////////////////////////////////
 function collapseCart() {
@@ -102,8 +131,9 @@ function renderCart(cartArray) {
             <div class="ordered-item"><p>${dish.name} <a href="#" data-remove='${dish.id}'>remove</a></p><p>$${dish.price}</p></div>
             `
         }
-        /* document.getElementById("ordered-items").innerHTML = htmlForCart */
-        document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order (${cartArray.length})</h3>`
+        document.getElementById("cart-modal-header").innerHTML = `
+            <h3 data-cart="cart-header">Your Order (${cartArray.length})</h3>
+            `
         document.getElementById("checkout-btn").disabled = false
     }
     //WHEN CART IS EMPTY
@@ -111,9 +141,11 @@ function renderCart(cartArray) {
         htmlForCart = `<div class="empty-cart">Your cart is empty</div>`
         document.getElementById("cart-modal-header").innerHTML = `<h3 data-cart="cart-header">Your Order</h3>`
         document.getElementById("checkout-btn").disabled = true
-    }
+        }
     document.getElementById("ordered-items").innerHTML = htmlForCart
-    document.getElementById("total-amount").textContent = `$ ${calcTotalPrice(cartArray)}`
+    
+    const totalAmount = calcTotalPrice(cartArray)
+    document.getElementById("total-amount").textContent = `${totalAmount}`
 }
 
 function removeFromCart(itemID) {
@@ -129,13 +161,12 @@ function calcSubTotal(cartArray) {
     for (let dish of cartArray) {
         subTotal += Number((dish.price).replace(',','.'))
     }
-    document.getElementById("subtotal-amount").textContent = `$ ${subTotal}`
+    document.getElementById("subtotal-amount").textContent = `${"$ " + subTotal.toString().replace('.',',')}`
     return subTotal
 }
 
 function calcTotalPrice(cartArray) {
-    let subTotal = calcSubTotal(cartArray)
-    let totalPrice = 0
+    subTotal = calcSubTotal(cartArray)
     if (subTotal === 0) {
         totalPrice = subTotal
     }
@@ -147,11 +178,7 @@ function calcTotalPrice(cartArray) {
         document.getElementById("delivery-amount").style.textDecoration = "line-through"
         totalPrice = subTotal
     }
-
-    if (hasDiscount) {
-        totalPrice = totalPrice - 10
-    }
-    return (totalPrice.toString()).replace('.',',')
+    return ("$ " + totalPrice.toString()).replace('.',',')
 }
 
 function applyDiscount() {
@@ -160,21 +187,40 @@ function applyDiscount() {
         alert('Enter a valid code!')
     }
     else {
-        if (couponInput.value === 'neffi' || couponInput.value === 'NEFFI' || couponInput.value === 'Neffi') {
-            hasDiscount = true
-            document.getElementById("coupon-code").disabled = true
-            couponBtn.disabled = true
-            document.getElementById("coupon-applied").style.display = "block"
-            if (cartContent.length > 0) {
-                renderCart(cartContent)
+            if (couponInput.value === 'neffi' || couponInput.value === 'NEFFI' || couponInput.value === 'Neffi') 
+            {
+                document.getElementById("loading-img").style.display = "inline-block"
+                couponBtn.style.display = "none"
+                setTimeout(function() {
+                    hasDiscount = true
+                    couponBtn.disabled = true
+                    document.getElementById("coupon-code").disabled = true
+                    document.getElementById("discount-overview").style.display = "flex"
+                    document.getElementById("total-to-pay").style.display = "flex"
+                    document.getElementById("discounted-price").textContent = "$ " + Math.floor((totalPrice - 10)*100)/100
+                    payButton.disabled = false
+                    document.getElementById("loading-img").style.display = "none"
+                }, 1500)
+                
+                if (totalPrice < 15) {
+                    setTimeout(function() {
+                        alert("To use this coupon, a minimum of order of $15 is required.")
+                        payButton.disabled = true
+                    },1500)
+                }
             }
-        }
-        else {
-            alert('Enter a valid code!')
-            couponInput.value = ''
+            else {
+                    document.getElementById("loading-img").style.display = "inline-block"
+                    couponBtn.style.display = "none"
+                    setTimeout(function() {
+                        alert('Your coupon code is invalid!')
+                        couponInput.value = ''
+                        couponBtn.style.display = "inline-block"
+                        document.getElementById("loading-img").style.display = "none"
+                    }, 1500)
+                }
         }
     }
-}
 
 //////// BUILD PAGE ////////////////////////////////////////////////////////////////////////////////////////////////
 function collectDrinks() {
