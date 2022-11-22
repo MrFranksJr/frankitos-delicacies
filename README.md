@@ -1,4 +1,4 @@
-*Nov 21, 2022 - Franky Jr Blondeel - initial version*
+*Nov 21, 2022 - Franky Jr Blondeel*
 
 
 # Frankito's Delicacies - a restaurant ordering app
