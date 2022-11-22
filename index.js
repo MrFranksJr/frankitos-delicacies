@@ -12,6 +12,7 @@ const checkoutBtn = document.getElementById("checkout-btn")
 const checkoutCloseBtn = document.getElementById("checkout-modal-close")
 const checkoutModal = document.getElementById("checkout-modal")
 const formEl = document.getElementById("checkout-form")
+const payButton = document.getElementById("pay-button")
 let cartContent = []
 let hasDiscount = false
 let subTotal = ''
