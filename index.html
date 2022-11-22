@@ -105,18 +105,21 @@
             </div>
             <h3>Enter Address and Card details for delivery</h3>
             <form id="checkout-form">
-                <input id="name-input" type="text" placeholder="Enter your name" required autocomplete="name" enterkeyhint="next">
-                <input id="street-input" type="text" placeholder="Enter your street and number" autocomplete="address-level1" required enterkeyhint="next">
+                <input id="name-input" type="text" placeholder="Enter your name" required autocomplete="name" enterkeyhint="next/">
+                <input id="street-input" type="text" placeholder="Enter your street and number" autocomplete="address-level1" required enterkeyhint="next"/>
                 <div class="credit-card-div">
-                    <input id="zip-postal-input" type="text" placeholder="ZIP or Postal Code" autocomplete="postal-code" required enterkeyhint="next">
-                    <input id="city-input" type="text" placeholder="City" autocomplete="address-level2" required enterkeyhint="next">
+                    <input id="zip-postal-input" type="text" placeholder="ZIP or Postal Code" autocomplete="postal-code" required enterkeyhint="next"/>
+                    <input id="city-input" type="text" placeholder="City" autocomplete="address-level2" required enterkeyhint="next"/>
                 </div>
-                    <input id="credit-card-input" type="number" placeholder="Credit card number" autocomplete="cc-number" required enterkeyhint="next">
+                    <input id="credit-card-input" type="number" placeholder="Credit card number" autocomplete="cc-number" required enterkeyhint="next"/>
                 <div class="credit-card-div">
-                    <input id="exp-input" type="text" placeholder="Enter EXP" autocomplete="cc-exp" required enterkeyhint="next"><input id="ccv-input" type="number" placeholder="Enter CCV" autocomplete="cc-csc" required enterkeyhint="next">
+                    <input id="exp-input" type="text" placeholder="Enter EXP" autocomplete="cc-exp" required enterkeyhint="next"><input id="ccv-input" type="number" placeholder="Enter CCV" autocomplete="cc-csc" required enterkeyhint="next"/>
                 </div>
                 <button id="pay-button" type="submit">Pay now</button>
             </form>
+            <div id="success">
+
+            </div>
         </div>
 
 	<script src="index.js" type="module"></script>
