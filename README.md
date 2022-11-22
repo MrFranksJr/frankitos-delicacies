@@ -72,3 +72,35 @@ So instead of making my prices numbers again in the arrays, I do some converting
 <img alt="some example of calculated prices" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/cart-prices.png">
 </p>
 
+
+### Checkout Experience
+When it came to the checkout, I had a couple of interesting struggles too!
+
+First of all, setting up the form itself still was a little bit of a challenge to me, meaning, when it comes to the positioning and the layout of the form. For some reason I seem to struggle with it from time to time. Even though I think it looks okay now, it didn't 'feel' like I was doing the right thing. I guess I'll need some more practice...
+<p align="center">
+<img alt="checkout window" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/checkout.png">
+</p>
+
+Other than that, I decided to add a coupon functionality. With a specific coupon defined (I didn't hide it in the code or anything), I display a 'loading' graphic; which is just a basic setTimeout() function, and run some code. Fun thing to do, and you also get to see the discount you got on the total order
+<p align="center">
+<img alt="invalid code" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/invalid.gif">
+</p>
+<p align="center">
+<img alt="valid code" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/valid.gif">
+</p>
+
+After some review by a user on the Scrimba code review forums, I noticed I had some issues with the validation of my form. The required fields were not taken into account. The reason for this was that I had pointed an eventlistener to the Pay button on the bottom of the screen.
+That's not how you're supposed to do it. Instead, I added an eventlistener to the form itself, listening for a 'submit' event on the form. This allowed me not only to properly validate the (required) data the user needed to fill out, but on top of that, I could use the preventDefault method, stopping the thing from reloading... Learned a lot there!
+<p align="center">
+<img alt="example of form validation" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/validation.png">
+</p>
+
+Next up, once the user is able to pay their order, I made sure the modal is repainted with a couple of SVG animations I found and included on the site. I added them, and then concluded the animation.
+<p align="center">
+<img alt="checkout sequence" src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/frankitos/payorder.gif">
+</p>
+
+
+## Conclusion
+
+I love every second of this assignment. It was the perfect closure to the essential Javascript section of the course. A chance to bring all knowledge together. And at the same time, I learned so much more in the process of creating this. I really, really liked it.
